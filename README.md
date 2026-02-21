@@ -4,7 +4,7 @@ A [Model Context Protocol](https://modelcontextprotocol.io/) server for Google D
 
 Uses Google service accounts with domain-wide delegation, so it works in Workspace orgs without OAuth consent screens.
 
-<!-- mcp-name: io.github.gigabrainobserver/google-docs-mcp-server -->
+<!-- mcp-name: io.github.gigabrain-observer/google-docs-mcp-server -->
 
 ## What it does
 
