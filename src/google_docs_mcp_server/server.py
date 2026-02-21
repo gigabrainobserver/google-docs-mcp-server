@@ -1,11 +1,3 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = [
-#     "mcp[cli]>=1.2.0",
-#     "google-api-python-client>=2.100.0",
-#     "google-auth>=2.23.0",
-# ]
-# ///
 """Google Docs MCP server with SA delegation and tab support."""
 
 import os
@@ -179,7 +171,6 @@ def list_tabs(ctx: Context, document_id: str) -> str:
 
     tab_list = []
     for entry in flat:
-        indent = "  " * entry["depth"]
         tab_list.append({
             "tabId": entry["tabId"],
             "title": entry["title"],
@@ -501,5 +492,9 @@ def list_documents(ctx: Context, query: str = "", max_results: int = 20) -> str:
     return json.dumps({"documents": docs_list, "count": len(docs_list)}, indent=2)
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "google-docs-mcp-server"
+version = "0.1.0"
+description = "MCP server for Google Docs with full tab support"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "gigabrainobserver" },
+]
+keywords = ["mcp", "google-docs", "model-context-protocol", "tabs"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "mcp[cli]>=1.2.0",
+    "google-api-python-client>=2.100.0",
+    "google-auth>=2.23.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/gigabrainobserver/google-docs-mcp-server"
+Repository = "https://github.com/gigabrainobserver/google-docs-mcp-server"
+
+[project.scripts]
+google-docs-mcp-server = "google_docs_mcp_server.server:main"

@@ -1,5 +1,8 @@
 __pycache__/
 *.pyc
+*.egg-info/
+dist/
+build/
 .env
 *.json
 !package.json

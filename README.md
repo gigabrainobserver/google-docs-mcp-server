@@ -1,8 +1,10 @@
 # Google Docs MCP Server
 
-A single-file [Model Context Protocol](https://modelcontextprotocol.io/) server for Google Docs with **full tab support** — something most existing servers get wrong or skip entirely.
+A [Model Context Protocol](https://modelcontextprotocol.io/) server for Google Docs with **full tab support** — something most existing servers get wrong or skip entirely.
 
 Uses Google service accounts with domain-wide delegation, so it works in Workspace orgs without OAuth consent screens.
+
+<!-- mcp-name: io.github.gigabrainobserver/google-docs-mcp-server -->
 
 ## What it does
 
@@ -29,10 +31,21 @@ Google Docs has supported [tabs](https://workspaceupdates.googleblog.com/2024/10
 
 This server handles all of that correctly and converts content to markdown with proper heading structure.
 
+## Install
+
+```bash
+pip install google-docs-mcp-server
+```
+
+Or run directly with [uv](https://docs.astral.sh/uv/):
+
+```bash
+uvx google-docs-mcp-server
+```
+
 ## Prerequisites
 
 - Python 3.11+
-- [uv](https://docs.astral.sh/uv/) (for zero-config dependency management)
 - A Google Cloud service account with domain-wide delegation
 
 ## Setup
@@ -62,8 +75,8 @@ Add to your MCP config (e.g. `~/.claude/mcp.json` or `.mcp.json`):
 {
   "mcpServers": {
     "google-docs": {
-      "command": "uv",
-      "args": ["run", "--script", "/path/to/server.py"],
+      "command": "uvx",
+      "args": ["google-docs-mcp-server"],
       "env": {
         "SERVICE_ACCOUNT_PATH": "/path/to/your-service-account-key.json",
         "SUBJECT_EMAIL": "you@yourdomain.com"
@@ -74,8 +87,6 @@ Add to your MCP config (e.g. `~/.claude/mcp.json` or `.mcp.json`):
 ```
 
 `SUBJECT_EMAIL` is the Workspace user the service account impersonates.
-
-That's it. No `pip install`, no virtual env — `uv run --script` handles dependencies via [PEP 723](https://peps.python.org/pep-0723/) inline metadata.
 
 ## Environment variables
 
