@@ -7,3 +7,4 @@ build/
 *.json
 !package.json
 !server.json
+.mcpregistry_*
